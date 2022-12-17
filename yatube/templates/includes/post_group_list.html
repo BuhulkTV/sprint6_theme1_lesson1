@@ -1,0 +1,18 @@
+<!-- Изначально я для Group/<slug> использовал этот шаблон, добавлял его через include
+Но на тестах выдало ошибку, пришлось поменять group_list.html-->
+{% for post in page_obj %}
+<article>
+  <ul>
+    <li>
+      Автор: {{ post.author.get_full_name }}
+    </li>
+    <li>
+      Дата публикации: {{ post.pub_date|date:"d E Y" }}
+    </li>
+  </ul>
+  <p>{{ post.text }}</p
+  <br><a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>    
+</article>
+{% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+{% include 'includes/paginator.html' %}

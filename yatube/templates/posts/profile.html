@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+Профайл пользователя {{ author }}
+{% endblock %}
+{% block content%}
+      <div class="container py-5">        
+        <h1>Все посты пользователя {{ author }} </h1>
+        <h3>Всего постов: {{ posts_count }} </h3>   
+        {% include 'includes/post_index.html' %} 
+        <!-- Остальные посты. после последнего нет черты -->
+        <!-- Здесь подключён паджинатор -->  
+      </div>
+{% endblock %}
